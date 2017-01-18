@@ -3,8 +3,9 @@ FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}:"
 # aufs kernel support required for xen-image-minimal
 KERNEL_FEATURES_append += "${@bb.utils.contains('DISTRO_FEATURES', 'aufs', ' features/aufs/aufs-enable.scc', '', d)}"
 
-RENESAS_BSP_URL = "git://github.com/xen-troops/linux.git"
-BRANCH = "4.6/rcar-3.3.2-demo"
+#RENESAS_BSP_URL = "git://github.com/xen-troops/linux.git"
+RENESAS_BSP_URL = "git://github.com/andr2000/linux.git"
+BRANCH = "rcar-3.3.2-demo"
 SRCREV = "${AUTOREV}"
 
 SRC_URI = "${RENESAS_BSP_URL};protocol=git;nocheckout=1;branch=${BRANCH}"
@@ -42,5 +43,9 @@ SRC_URI_remove = " \
 FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}/${MACHINE}:"
 
 SRC_URI_append_salvator-x-xen = " \
+    file://defconfig \
+"
+
+SRC_URI_append_m3ulcb-xen = " \
     file://defconfig \
 "

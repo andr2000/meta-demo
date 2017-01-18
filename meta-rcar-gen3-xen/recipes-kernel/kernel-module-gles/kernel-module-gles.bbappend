@@ -4,7 +4,7 @@ SRCREV = "${AUTOREV}"
 
 SRC_URI_r8a7795 = "${PVRKM_URL};protocol=http;branch=${BRANCH}"
 
-S = "${WORKDIR}/git"
+S_r8a7795 = "${WORKDIR}/git"
 
 BUILD = "release"
 #BUILD = "debug"
